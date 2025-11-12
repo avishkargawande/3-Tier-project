@@ -56,13 +56,14 @@ Create a VPC with range 10.0.0.0/16. This creates an isolated network to host al
 *  Private Subnet 1 → 10.0.16.0/20 (for App Server)
 * Private Subnet 2 → 10.0.32.0/20 (for DB Server)
 
-![alt text](<Screenshot 2025-10-28 210340-1.png>)
+![alt text](<Screenshot 2025-10-28 205741.png>)
 
 Step 3: Create an Internet Gateway
 
 Create an Internet Gateway and attach it to the VPC. This allows resources in the public subnet to connect to
  the internet. 
-![alt text](<Screenshot 2025-10-28 205741.png>)
+
+![alt text](<Screenshot 2025-10-28 205950.png>)
 
  Step 4: Configure Public Route Table
 
@@ -85,6 +86,7 @@ Create a NAT Gateway in the Public Subnet (auto-allocate Elastic IP). It allows 
  Step 7:
 
  Associate Private Subnets to the private route table. This separates internal traffic from public access.
+
 ![alt text](<Screenshot 2025-10-28 210340-1.png>)
 
   Step 8:
@@ -124,7 +126,7 @@ Create a NAT Gateway in the Public Subnet (auto-allocate Elastic IP). It allows 
 
  Inside the server block, add: location / { proxy_pass http://:8080/student/; }
 
-![alt text](<Screenshot 2025-10-28 214454-1.png>)
+![alt text](<Screenshot 2025-10-28 214454.png>)
 
  *  sudo systemctl restart nginx
  NGINX will now forward external traffic to your Tomcat server.
